@@ -14,11 +14,14 @@
 
 void	free_stack(t_swap *swap)
 {
+	t_node	*tmp;
+
 	swap->stack_a->cur = swap->stack_a->head->next;
 	while (swap->stack_a->cur->check_dummy != 1)
 	{
-		free (swap->stack_a->cur);
+		tmp = swap->stack_a->cur;
 		list_next (swap->stack_a);
+		free (tmp);
 	}
 	free (swap->stack_a->head);
 	free (swap->stack_b->head);
